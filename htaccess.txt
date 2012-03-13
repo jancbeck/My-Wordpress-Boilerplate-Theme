@@ -1,0 +1,30 @@
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+# Schützt die wp-config.php
+<files wp-config.php>
+Order deny,allow
+deny from all
+</files>
+
+# Suche /s=xyz auf /search/xyz umleiten
+RewriteCond	%{REQUEST_URI}	^/$
+RewriteCond	%{QUERY_STRING}	^s=(.+)$
+RewriteRule	.*	/search/%1/?	[R,L]
+
+# Webfonts
+AddType font/ttf		.ttf
+AddType font/otf		.otf
+AddType font/x-woff		.woff
+AddType image/svg+xml		.svg .svgz
+
+AddType text/x-component .htc
