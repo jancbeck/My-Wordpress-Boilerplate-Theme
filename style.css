@@ -39,8 +39,6 @@ body {
     line-height: 1.5;
 }
 
-p { margin: 0 0 1.5em }
-
 blockquote {
     margin: 1.5em;
     color: #888;
@@ -136,6 +134,7 @@ select:focus {
 }
 textarea {
 	height: 200px;
+	resize: vertical;
 }
 button, input[type=submit] {
     border: none;
