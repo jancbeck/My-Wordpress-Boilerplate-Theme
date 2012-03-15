@@ -136,7 +136,7 @@ textarea {
 	height: 200px;
 	resize: vertical;
 }
-button, input[type=submit] {
+button, input[type=submit], .btn a {
     border: none;
     background: #555;
     color: #fff;
@@ -146,7 +146,7 @@ button, input[type=submit] {
     line-height: 16px;
 }
 
-button:hover, input[type=submit]:hover {
+button:hover, input[type=submit]:hover, .btn a:hover {
     background: #ddd;
     color: #555;
 }
