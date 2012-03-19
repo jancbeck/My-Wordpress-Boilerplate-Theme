@@ -75,7 +75,28 @@
 	    return get_bloginfo($key);
 	}
 	add_shortcode('bloginfo', 'bloginfo_shortcode');
+
+
+/***************************************************************
+* Function: has_attachments
+* Description: returns true if post has attachments
+***************************************************************/
 	
+	function has_attachments($post_id = null) {
+		$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
+		$args = array(
+			'post_type' => 'attachment',
+			'numberposts' => null,
+			'post_status' => null,
+			'post_parent' => $post_id
+		);
+		$attachments = get_posts($args);
+		if ($attachments) 	
+			return true;
+		else
+			return false;
+		
+	}
 	
 	
 /***************************************************************
