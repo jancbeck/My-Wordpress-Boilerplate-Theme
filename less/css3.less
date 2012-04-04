@@ -1,5 +1,3 @@
-.pie { behavior: url('css/PIE.htc'); } // IE fixes  
-
 .border-radius( @radius: 3px ) {
 	-webkit-border-radius: @radius;
 	   -moz-border-radius: @radius;
@@ -12,17 +10,10 @@
 	        outline-radius: @radius;		
 }
 
-.box-shadow( 
-	@x : 2px, 
-	@y : 2px, 
-	@blur : 5px, 
-	@spread : 0, 
-	@color : rgba(0,0,0,.6) 
-) {
-	-webkit-box-shadow: @x @y @blur @spread @color;
-	   -moz-box-shadow: @x @y @blur @spread @color;	
-			box-shadow: @x @y @blur @spread @color;	
-			.pie
+.box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
+  -webkit-box-shadow: @shadow;
+     -moz-box-shadow: @shadow;
+          box-shadow: @shadow;
 }
 .inset-box-shadow( 
 	@x : 2px, 
@@ -34,18 +25,14 @@
 	-webkit-box-shadow: inset @x @y @blur @spread @color;
 	   -moz-box-shadow: inset @x @y @blur @spread @color;	
 			box-shadow: inset @x @y @blur @spread @color;	
-			.pie
 }
 
-.transition(
-	@what : all,
-	@length : 1s,
-	@easing : ease-in-out
-) {
-	-webkit-transition: @what @length @easing;
-	   -moz-transition: @what @length @easing;
-	     -o-transition: @what @length @easing;
-		  	transition: @what @length @easing;			
+.transition(@transition) {
+  -webkit-transition: @transition;
+     -moz-transition: @transition;
+      -ms-transition: @transition;
+       -o-transition: @transition;
+          transition: @transition;
 }
 
 .transform(
@@ -89,7 +76,12 @@
 	   -moz-resize: @direction;
 	        resize: @direction;
 }
-
+.user-select(@select) {
+  -webkit-user-select: @select;
+     -moz-user-select: @select;
+       -o-user-select: @select;
+          user-select: @select;
+}
 .linear-gradient( 
 	@begin: black, 
 	@end: white,
@@ -102,15 +94,10 @@
 	background: -o-linear-gradient(top, @begin, @end @switch);
 	background: -ms-linear-gradient(top, @begin, @end @switch);
 	background: linear-gradient(top, @begin, @end @switch);
-	-pie-background: linear-gradient(top, @begin, @end @switch); 
-	.pie
  }
  .opacity(@op:100) {
-   filter:alpha(opacity=@op);
-   -moz-opacity:@op/100;
-   -khtml-opacity:@op/100;
-   opacity:@op/100;
-   .pie;
+	opacity: @opacity / 100;
+	filter: ~"alpha(opacity=@{opacity})";
  }   
 .double-borders( 
 	@colorOne : green,
@@ -157,5 +144,7 @@
 .box-sizing( @type : border-box ) {
 	-webkit-box-sizing: @type;
 	   -moz-box-sizing: @type;
-	        box-sizing: @type;		
+    -ms-box-sizing: @type;
+	        box-sizing: @type;
+	*behavior: url(/scripts/boxsizing.htc);		
 }

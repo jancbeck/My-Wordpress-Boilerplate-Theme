@@ -1,0 +1,241 @@
+/**
+ * Gridpak Beta LESS
+ *
+ * Generator - http://gridpak.com/
+ * Created by @erskinedesign
+ */
+
+/* Reusable column setup */
+.col,
+.item {
+     border:0px solid rgba(0,0,0,0);
+     float:left;
+     -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+     box-sizing:border-box;
+     -moz-background-clip:padding-box !important;
+     -webkit-background-clip:padding-box !important;
+     background-clip:padding-box !important;
+}
+.makeRow(@gutter) {
+  margin-left: @gutter * -1;
+  .fix;
+}
+.makeCol(@num, @gutter, @max_columns) {
+	@one_col: (100% - (@gutter * (@max_columns - 1))) / @max_columns;
+	width: (@one_col * @num) + (@gutte * (@num - 1));
+	margin-left: @gutter / 2;
+	margin-right: @gutter / 2;
+	padding: @gutter;
+}
+.makeSquare(@num, @gutter, @max_columns) {
+	width: (@one_col * @num) + (@gutter * (@num - 1));
+	height: 0;
+	padding-bottom: (@one_col * @num) + (@gutter * (@num - 1));
+}
+ 
+ 
+
+    /* 1. 4 Column Grid 0px - 319px 
+    ----------------------------------------------------------------------------- 
+    
+    Span 1:    23.5%
+    Span 2:    49.0%
+    Span 3:    74.5%
+    Span 4:    100%
+    
+    ----------------------------------------------------------------------------- */	
+    
+	@media screen and (min-width: 0px) and (max-width: 319px) {
+        
+        /* --- Gridpak variables ---*/ 
+        @max_columns: 4;
+        @padding: 0 2%;
+        @gutter: 2%;
+           
+        
+        /*
+        Add your semantic classnames        
+        
+        */
+        
+    }
+
+    /* 2. 12 Column Grid 320px - 699px 
+    ----------------------------------------------------------------------------- 
+    
+    Span 1:    6.5%
+    Span 2:    15.0%
+    Span 3:    23.5%
+    Span 4:    32.0%
+    Span 5:    40.5%
+    Span 6:    49.0%
+    Span 7:    57.5%
+    Span 8:    66.0%
+    Span 9:    74.5%
+    Span 10:    83.0%
+    Span 11:    91.5%
+    Span 12:    100%
+    
+    ----------------------------------------------------------------------------- */	
+    
+	@media screen and (min-width: 320px) and (max-width: 699px) {
+        
+		/* --- Gridpak variables ---*/ 
+		@max_columns: 4;
+		@padding: 0 2%;
+		@gutter: 2%;
+		   
+		
+		/*
+		Add your semantic classnames        
+		
+		*/
+    }
+
+    /* 3. 12 Column Grid 700px - 919px 
+    ----------------------------------------------------------------------------- 
+    
+    Span 1:    7.41666666667%
+    Span 2:    15.8333333333%
+    Span 3:    24.25%
+    Span 4:    32.6666666667%
+    Span 5:    41.0833333333%
+    Span 6:    49.5%
+    Span 7:    57.9166666667%
+    Span 8:    66.3333333333%
+    Span 9:    74.75%
+    Span 10:    83.1666666667%
+    Span 11:    91.5833333333%
+    Span 12:    100%
+    
+    ----------------------------------------------------------------------------- */	
+    
+	@media screen and (min-width: 700px) and (max-width: 919px) {
+        
+		/* --- Gridpak variables ---*/ 
+		@max_columns: 4;
+		@padding: 0 2%;
+		@gutter: 2%;
+		   
+		
+		/*
+		Add your semantic classnames        
+		
+		*/
+    }
+
+    /* 4. 12 Column Grid 920px - 1159px 
+    ----------------------------------------------------------------------------- 
+    
+    Span 1:    7.41666666667%
+    Span 2:    15.8333333333%
+    Span 3:    24.25%
+    Span 4:    32.6666666667%
+    Span 5:    41.0833333333%
+    Span 6:    49.5%
+    Span 7:    57.9166666667%
+    Span 8:    66.3333333333%
+    Span 9:    74.75%
+    Span 10:    83.1666666667%
+    Span 11:    91.5833333333%
+    Span 12:    100%
+    
+    ----------------------------------------------------------------------------- */	
+    
+	@media screen and (min-width: 920px) and (max-width: 1159px) {
+        
+		/* --- Gridpak variables ---*/ 
+		@max_columns: 4;
+		@padding: 0 2%;
+		@gutter: 2%;
+		   
+		
+		/*
+		Add your semantic classnames        
+		
+		*/
+    }
+
+    /* 5. 12 Column Grid 1160px - 1419px 
+    ----------------------------------------------------------------------------- 
+    
+    Span 1:    7.41666666667%
+    Span 2:    15.8333333333%
+    Span 3:    24.25%
+    Span 4:    32.6666666667%
+    Span 5:    41.0833333333%
+    Span 6:    49.5%
+    Span 7:    57.9166666667%
+    Span 8:    66.3333333333%
+    Span 9:    74.75%
+    Span 10:    83.1666666667%
+    Span 11:    91.5833333333%
+    Span 12:    100%
+    
+    ----------------------------------------------------------------------------- */	
+    
+	@media screen and (min-width: 1160px) and (max-width: 1419px) {
+      
+        /* --- Gridpak variables ---*/ 
+		@max_columns: 12;
+		@gutter: 1%;
+        
+        
+		.bike {
+		    .makeCol(2, @gutter, @max_columns)
+		}
+		.teaser {
+		    .makeCol(3, @gutter, @max_columns)
+		}
+		.content {
+		    .makeCol(6, @gutter, @max_columns)
+		}
+		.header .col,
+		.footer .col {
+		    .makeRow(@gutter);
+		    width:100%;
+		}
+    }
+
+    /* 6. 12 Column Grid 1420px - Infinity 
+    ----------------------------------------------------------------------------- 
+    
+    Span 1:    7.41666666667%
+    Span 2:    15.8333333333%
+    Span 3:    24.25%
+    Span 4:    32.6666666667%
+    Span 5:    41.0833333333%
+    Span 6:    49.5%
+    Span 7:    57.9166666667%
+    Span 8:    66.3333333333%
+    Span 9:    74.75%
+    Span 10:    83.1666666667%
+    Span 11:    91.5833333333%
+    Span 12:    100%
+    
+    ----------------------------------------------------------------------------- */	
+    
+	@media screen and (min-width: 1420px) {
+        
+		/* --- Gridpak variables ---*/ 
+		@max_columns: 12;
+		@gutter: 1%;
+		
+		
+		.bike {
+		    .makeCol(2, @gutter, @max_columns)
+		}
+		.teaser {
+		    .makeCol(3, @gutter, @max_columns)
+		}
+		.content {
+		    .makeCol(6, @gutter, @max_columns)
+		}
+		.header .col,
+		.footer .col {
+		    .makeRow(@gutter);
+		    width:100%;
+		}
+    }
+

@@ -1,0 +1,38 @@
+/* @group Hyperlinks
+-------------------------------------------------------------- */
+
+a { color: @linkColor; text-decoration: none; }
+a:hover { color: @textColor; }
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a { color: @textColor; }
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover { color: @linkColor; }
+
+/* @end */
+
+
+/* @group Typography & Text-level semantics
+-------------------------------------------------------------- */
+
+body {
+	margin: 0;
+	font-family: @baseFontFamily;
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+	color: @textColor;
+	background-color: @bodyBackground;
+}
+
+
+/* @end */
+
