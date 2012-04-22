@@ -140,6 +140,12 @@ function remove_footer_admin () { ?>
 <?php }
 add_filter('admin_footer_text', 'remove_footer_admin'); //change admin footer text
 
+function remove_comments_from_adminbar(){
+        global $wp_admin_bar;
+        $wp_admin_bar->remove_menu('comments');
+}
+add_action( 'wp_before_admin_bar_render', 'remove_comments_from_adminbar' );
+
 
 /***************************************************************
 * Function: 
