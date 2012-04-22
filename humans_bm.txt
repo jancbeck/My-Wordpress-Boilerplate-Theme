@@ -1,0 +1,16 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Project Management, Design: Benjamin Messingschlager
+  Site: www.benjaminmessingschlager.de
+  Location: Germany
+
+  Web Development: Jan Beck
+  Site: www.jancbeck.de
+  Location: Germany
+
+/* SITE */
+  Standards: HTML, CSS, JavaScript
+  Software: Espresso, WordPress, Transmit
