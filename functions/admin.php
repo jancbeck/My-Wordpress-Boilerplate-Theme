@@ -135,6 +135,11 @@ function custom_admin_logo() {
 }
 add_action('admin_head', 'custom_admin_logo');
 
+function remove_footer_admin () { ?>
+	Webdesign by <a href="http://www.cccc.de/">Werbeagentur 4c media</a> • 0800 2222 633
+<?php }
+add_filter('admin_footer_text', 'remove_footer_admin'); //change admin footer text
+
 
 /***************************************************************
 * Function: 
