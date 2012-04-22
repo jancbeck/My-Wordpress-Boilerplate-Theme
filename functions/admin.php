@@ -114,6 +114,27 @@ function wphd_hide_dashboard() {
 add_action('admin_init', 'wphd_hide_dashboard', 0);
 
 
+/***************************************************************
+* Function: custom_login_logo, custom_admin_logo
+* Description: Change WordPress admin and login page logo
+* Source: http://snipplr.com/view.php?codeview&id=63771
+***************************************************************/
+
+function custom_login_logo() {
+    echo '<style type="text/css">
+        h1 a { background-image:url('.get_bloginfo('template_url').'/images/admin_login.png) !important; }
+    </style>';
+}
+add_action('login_head', 'custom_login_logo');
+
+function custom_admin_logo() {
+  echo '<style type="text/css">
+    #wp-admin-bar-wp-logo > .ab-item .ab-icon { background-image: url('.get_bloginfo('template_directory').'/images/admin_head.png) !important; background-position: 0 0; }
+   	#wpadminbar.nojs #wp-admin-bar-wp-logo:hover > .ab-item .ab-icon, #wpadminbar #wp-admin-bar-wp-logo.hover > .ab-item .ab-icon {  background-position: 0 -20px; }
+    </style>';
+}
+add_action('admin_head', 'custom_admin_logo');
+
 
 /***************************************************************
 * Function: 
