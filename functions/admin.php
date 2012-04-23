@@ -111,7 +111,7 @@ function wphd_hide_dashboard() {
 	
 }
 
-add_action('admin_init', 'wphd_hide_dashboard', 0);
+add_action('admin_menu', 'wphd_hide_dashboard', 0);
 
 
 /***************************************************************
