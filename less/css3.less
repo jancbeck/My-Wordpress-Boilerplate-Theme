@@ -1,4 +1,4 @@
-.border-radius( @radius: 3px ) {
+.border-radius( @radius: 4px ) {
 	-webkit-border-radius: @radius;
 	   -moz-border-radius: @radius;
 	        border-radius: @radius;		
@@ -87,18 +87,18 @@
 	@end: white,
 	@switch : 100%
 ) {
-	background:  @begin;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(@begin), color-stop(@switch, @end));
-	background: -webkit-linear-gradient(top, @begin, @end @switch);
-	background: -moz-linear-gradient(top, @begin, @end @switch);
-	background: -o-linear-gradient(top, @begin, @end @switch);
-	background: -ms-linear-gradient(top, @begin, @end @switch);
-	background: linear-gradient(top, @begin, @end @switch);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@begin), color-stop(@switch, @end));
+	background-image: -webkit-linear-gradient(top, @begin, @end @switch);
+	background-image: -moz-linear-gradient(top, @begin, @end @switch);
+	background-image: -o-linear-gradient(top, @begin, @end @switch);
+	background-image: -ms-linear-gradient(top, @begin, @end @switch);
+	background-image: linear-gradient(top, @begin, @end @switch);
  }
- .opacity(@op:100) {
-	opacity: @opacity / 100;
+.opacity(@op:1) {
+	@opacity: @op * 100;
+	opacity: @op;
 	filter: ~"alpha(opacity=@{opacity})";
- }   
+}   
 .double-borders( 
 	@colorOne : green,
 	@colorTwo : red,
@@ -146,5 +146,5 @@
 	   -moz-box-sizing: @type;
     -ms-box-sizing: @type;
 	        box-sizing: @type;
-	*behavior: url(/scripts/boxsizing.htc);		
+	*behavior: url(css/boxsizing.htc);		
 }
