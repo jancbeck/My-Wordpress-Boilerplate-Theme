@@ -9,6 +9,7 @@
 * 	2.0 ADMIN
 * 		2.1 Remove default screen metaboxes
 * 		2.2 Cleanup Dashboard
+* 		2.3
 * 	3.0 THEME
 * 		3.1 Clean <head>
 * 		3.2 Add Section Class
@@ -118,6 +119,45 @@
 	}  
 	add_action('wp_dashboard_setup', 'clean_dashboard_widgets');
 
+
+/***************************************************************
+* 2.3 Customize Admin change admin interface and login page
+* Source: http://snipplr.com/view.php?codeview&id=63771
+***************************************************************/
+	
+	// use custom login logo
+	function custom_login_logo() {
+	    echo '<style type="text/css">
+	        h1 a { background-image:url('.get_bloginfo('template_url').'/images/wordpress-logo.png) !important; }
+	    </style>';
+	}
+	add_action('login_head', 'custom_login_logo');
+	
+	//change admin footer text
+	function remove_footer_admin () { ?>
+		Webdesign by <a href="http://www.cccc.de/">Werbeagentur 4c media</a> • 0800 2222 633
+	<?php }
+	add_filter('admin_footer_text', 'remove_footer_admin'); 
+	
+	// add own css to admin
+	function add_admin_css() {
+	     wp_enqueue_style('admin', get_bloginfo('template_directory').'/css/admin.css');
+	}
+	add_action('admin_print_styles', 'add_admin_css');
+	
+	// add own js to admin	
+	function add_admin_js() {
+	     wp_enqueue_script('admin', get_bloginfo('template_directory').'/js/admin.js');
+	}
+	add_action('admin_print_scripts', 'add_admin_js');
+	
+	
+	function remove_items_from_adminbar(){
+	        global $wp_admin_bar;
+	        $wp_admin_bar->remove_menu('comments');
+	        $wp_admin_bar->remove_menu('backwpup');
+	}
+	add_action( 'wp_before_admin_bar_render', 'remove_items_from_adminbar' );
 
 /***************************************************************
 * 3.1 Clean <head>: Use Template instead.
