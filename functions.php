@@ -9,7 +9,7 @@
 * 	2.0 ADMIN
 * 		2.1 Remove default screen metaboxes
 * 		2.2 Cleanup Dashboard
-* 		2.3
+* 		2.3 Customize Admin
 * 	3.0 THEME
 * 		3.1 Clean <head>
 * 		3.2 Add Section Class
@@ -121,7 +121,7 @@
 
 
 /***************************************************************
-* 2.3 Customize Admin change admin interface and login page
+* 2.3 Customize Admin: Change admin interface and login page
 * Source: http://snipplr.com/view.php?codeview&id=63771
 ***************************************************************/
 	
