@@ -1,7 +1,9 @@
+// global namespace
+var project = {};
 
-
-
-
+$(function (){  
+	log('jQuery loaded successfully!', project);
+}); 
 
 
 
