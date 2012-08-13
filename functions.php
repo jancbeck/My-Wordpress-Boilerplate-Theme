@@ -32,7 +32,7 @@
 		
 		// wp_enqueue_style( $handle, $src, $deps, $ver, $media );
 		
-		wp_register_style( 'custom-style', get_template_directory_uri() . '/css/custom-style.css' );
+		wp_register_style( 'custom-style', get_template_directory_uri() . '/less/theme.less' );
 	}
 	add_action('wp_enqueue_scripts', 'theme_ressources'); 
 
