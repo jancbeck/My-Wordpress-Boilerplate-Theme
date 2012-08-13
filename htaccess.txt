@@ -99,7 +99,6 @@ AddEncoding gzip                       svgz
 AddType application/vnd.ms-fontobject  eot
 AddType application/x-font-ttf         ttf ttc
 AddType font/opentype                  otf
-AddType application/x-font-woff        woff
 AddType font/ttf					   ttf
 AddType font/otf					   otf
 AddType font/x-woff					   woff
