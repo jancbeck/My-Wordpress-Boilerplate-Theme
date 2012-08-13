@@ -6,6 +6,7 @@
 * 		1.1 Enqueue Scripts
 * 		1.2 Add Theme Support
 * 		1.3 Register Menus
+* 		1.3 Bloginfo Shortcode
 * 	2.0 ADMIN
 * 		2.1 Remove default screen metaboxes
 * 		2.2 Cleanup Dashboard
@@ -122,22 +123,25 @@
 	// use custom login logo
 	function custom_login_logo() {
 	    echo '<style type="text/css">
-	        h1 a { background-image:url('.get_bloginfo('template_url').'/images/wordpress-logo.png) !important; }
+	        .login h1 a { background-image:url('.get_bloginfo('template_url').'/images/wordpress-logo.png) !important; }
 	    </style>';
 	}
 	add_action('login_head', 'custom_login_logo');
 	
+	
 	//change admin footer text
-	function remove_footer_admin () { ?>
+	function custom_admin_footer () { ?>
 		Webdesign by <a href="http://www.cccc.de/">Werbeagentur 4c media</a> • 0800 2222 633
 	<?php }
-	add_filter('admin_footer_text', 'remove_footer_admin'); 
+	// add_filter('admin_footer_text', 'custom_admin_footer'); 
+	
 	
 	// add own css to admin
 	function add_admin_css() {
 	     wp_enqueue_style('admin', get_bloginfo('template_directory').'/css/admin.css');
 	}
 	add_action('admin_print_styles', 'add_admin_css');
+	
 	
 	// add own js to admin	
 	function add_admin_js() {
@@ -229,6 +233,6 @@
 	
 	
 /***************************************************************
-* 
+* X.X Comment Template
 ***************************************************************/
 
