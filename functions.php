@@ -6,7 +6,6 @@
 * 		1.1 Enqueue Scripts
 * 		1.2 Add Theme Support
 * 		1.3 Register Menus
-* 		1.3 Bloginfo Shortcode
 * 	2.0 ADMIN
 * 		2.1 Remove default screen metaboxes
 * 		2.2 Cleanup Dashboard
@@ -33,7 +32,7 @@
 		
 		// wp_enqueue_style( $handle, $src, $deps, $ver, $media );
 		
-		wp_register_style( 'custom-style', get_template_directory_uri() . '/less/theme.less' );
+		wp_register_style( 'custom-style', get_template_directory_uri() . '/less/style.less' );
 	}
 	add_action('wp_enqueue_scripts', 'theme_ressources'); 
 
@@ -128,20 +127,17 @@
 	}
 	add_action('login_head', 'custom_login_logo');
 	
-	
 	//change admin footer text
-	function custom_admin_footer () { ?>
+	function remove_footer_admin () { ?>
 		Webdesign by <a href="http://www.cccc.de/">Werbeagentur 4c media</a> • 0800 2222 633
 	<?php }
-	// add_filter('admin_footer_text', 'custom_admin_footer'); 
-	
+	// add_filter('admin_footer_text', 'remove_footer_admin'); 
 	
 	// add own css to admin
 	function add_admin_css() {
 	     wp_enqueue_style('admin', get_bloginfo('template_directory').'/css/admin.css');
 	}
 	add_action('admin_print_styles', 'add_admin_css');
-	
 	
 	// add own js to admin	
 	function add_admin_js() {
@@ -152,8 +148,11 @@
 	
 	function remove_items_from_adminbar(){
 	        global $wp_admin_bar;
-	        $wp_admin_bar->remove_menu('comments');
-	        $wp_admin_bar->remove_menu('backwpup');
+	        $wp_admin_bar->remove_menu( 'comments' );
+	        $wp_admin_bar->remove_menu( 'backwpup' );
+	        $wp_admin_bar->remove_menu( 'wp-logo' );
+			$wp_admin_bar->remove_menu( 'appearance' );
+			$wp_admin_bar->remove_menu( 'my-account-with-avatar' );
 	}
 	add_action( 'wp_before_admin_bar_render', 'remove_items_from_adminbar' );
 	
@@ -233,6 +232,6 @@
 	
 	
 /***************************************************************
-* X.X Comment Template
+* X.X Code Template
 ***************************************************************/
 
