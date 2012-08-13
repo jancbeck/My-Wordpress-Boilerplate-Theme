@@ -2,14 +2,15 @@
 
 /***************************************************************
 * INDEX
-* 	1.0 SETUP concerns ADMIN + THEME
+* 	1.0 SETUP (concerns ADMIN + THEME)
 * 		1.1 Enqueue Scripts
-* 		1.2 Hide Login Errors
-* 		1.3 
+* 		1.2 Add Theme Support
+* 		1.3 Register Menus
 * 	2.0 ADMIN
 * 		2.1 Remove default screen metaboxes
 * 		2.2 Cleanup Dashboard
 * 		2.3 Customize Admin
+* 		2.4 Hide Login Errors
 * 	3.0 THEME
 * 		3.1 Clean <head>
 * 		3.2 Add Section Class
@@ -37,21 +38,14 @@
 
 
 /***************************************************************
-* 1.2 Hide Login Errors - removes detailed login error information for security
-***************************************************************/
-	
-	add_filter('login_errors', create_function('$a', "return null;"));
-
-
-/***************************************************************
-* 1.3 Add Theme Support
+* 1.2 Add Theme Support
 ***************************************************************/
 	
 	add_theme_support( 'post-thumbnails' );
 	add_editor_style('css/editor.css');	
 	
 /***************************************************************
-* 1.4 Register Menus
+* 1.3 Register Menus
 ***************************************************************/ 
 
 	register_nav_menus(array( 
@@ -61,7 +55,7 @@
 
 
 /***************************************************************
-* 1.5 Echoes bloginfo as shortcode
+* 1.4 Echoes bloginfo as shortcode
 ***************************************************************/
 	
 	function bloginfo_shortcode( $atts ) {
@@ -158,6 +152,13 @@
 	        $wp_admin_bar->remove_menu('backwpup');
 	}
 	add_action( 'wp_before_admin_bar_render', 'remove_items_from_adminbar' );
+	
+	
+/***************************************************************
+* 2.4 Hide Login Errors - removes detailed login error information for security
+***************************************************************/
+	
+	add_filter('login_errors', create_function('$a', "return null;"));
 
 /***************************************************************
 * 3.1 Clean <head>: Use Template instead.
