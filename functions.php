@@ -15,6 +15,7 @@
 * 		3.1 Clean <head>
 * 		3.2 Add Section Class
 * 		3.3 has_attachments()
+*		3.4 Force compile less
 * 
 ***************************************************************/
 
@@ -33,9 +34,9 @@
 	}
 	add_action('wp_enqueue_scripts', 'theme_ressources');
 	
-	// wp_enqueue_style( $handle, $src, $deps, $ver, $media );
-	wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/less/style.less' ); 
-
+	if ( !is_admin() )
+		wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/less/style.less' ); 
+		// wp_enqueue_style( $handle, $src, $deps, $ver, $media );
 
 /***************************************************************
 * 1.2 Add Theme Support
@@ -229,7 +230,18 @@
 		else
 			return false;
 	}
-	
+
+
+/***************************************************************
+* 3.4 Force compile less
+***************************************************************/
+
+	function always_compile_less() {
+		global $WPLessPlugin;
+		$WPLessPlugin->processStylesheets(true);
+	}
+	add_action( 'wp', 'always_compile_less' );
+		
 	
 /***************************************************************
 * X.X Code Template
