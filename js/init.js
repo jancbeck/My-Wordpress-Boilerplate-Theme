@@ -1,10 +1,12 @@
 // global namespace
 var project = {};
 
-jQuery(function ($){  
-	log('jQuery loaded successfully!', project, $);
-}); 
 
+(function( $ ){
+
+	log('jQuery loaded successfully!', project, $);
+	
+})( jQuery.noConflict() );
 
 
 
