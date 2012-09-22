@@ -1,3 +1,77 @@
+/* Hide Content
+// ------------------------- */
+
+.hidden { display: none }
+.hidden-accessible { position: absolute !important; clip: rect(1px 1px 1px 1px); }
+.no-text {
+	text-indent: -9999px;
+	display: inline-block;
+	*display: inline;
+}
+
+/* Alignment
+// ------------------------- */
+
+.center() {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/* Clearfix
+// ------------------------- */
+
+.fix {
+		*zoom: 1;
+		&:before,
+		&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+
+/* Nav Class - removes default list values
+// ------------------------- */
+.nav {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+
+/* Icons
+// ------------------------- */
+.icon(@x: 0, @y: 0, @w: 20px, @h: 20px) {
+	width: @w;
+	height: @h;
+	background-position: -@x -@y;
+	display: inline-block;
+}
+
+
+/* InlineBlock
+// ------------------------- */
+
+.inline-block() {
+	display: inline-block;
+	*display: inline; /* IE7 inline-block hack */	
+	*zoom: 1;
+}
+
+/* IE */
+// -------------------------------------------------- */
+
+.reset-filter() {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+/* CSS3 */
+// -------------------------------------------------- */
 .border-radius( @radius: 4px ) {
 	-webkit-border-radius: @radius;
 	   -moz-border-radius: @radius;
