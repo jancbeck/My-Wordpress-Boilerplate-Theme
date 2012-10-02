@@ -3,7 +3,7 @@
 /***************************************************************
 * INDEX
 * 	1.0 SETUP (concerns ADMIN + THEME)
-* 		1.1 Enqueue Scripts
+* 		1.1 Enqueue Scripts & Styles
 * 		1.2 Add Theme Support
 * 		1.3 Register Menus
 * 	2.0 ADMIN
@@ -21,10 +21,10 @@
 
 
 /***************************************************************
-* 1.1 ENQUEUE SCRIPTS
+* 1.1 ENQUEUE SCRIPTS & STYLES
 ***************************************************************/
    
-	function theme_ressources() {
+	function theme_scripts() {
 		
 		// wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
 	
@@ -32,11 +32,25 @@
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('init', get_template_directory_uri() . '/js/init.js', array('jquery'), '1.0', true ); 
 	}
-	add_action('wp_enqueue_scripts', 'theme_ressources');
 	
-	if ( !is_admin() )
-		wp_enqueue_style( 'custom-style', get_template_directory_uri() . '/less/style.less' ); 
-		// wp_enqueue_style( $handle, $src, $deps, $ver, $media );
+	add_action('wp_enqueue_scripts', 'theme_scripts');
+
+	// include the class
+	require_once( 'libs/wp-less/wp-less.php' );
+	
+	// enqueue a .less style sheet
+	if ( ! is_admin() )
+	    wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/less/style.less' );
+	
+	add_editor_style( 'less/style.less' );
+	
+	// load build-in jQuery in footer
+	function enqueue_jquery_in_footer( &$scripts ) {
+		if ( ! is_admin() )
+			$scripts->add_data( 'jquery', 'group', 1 );
+	}
+	add_action( 'wp_default_scripts', 'enqueue_jquery_in_footer' );
+	
 
 /***************************************************************
 * 1.2 Add Theme Support
