@@ -10,12 +10,9 @@
 * 		2.1 Remove default screen metaboxes
 * 		2.2 Cleanup Dashboard
 * 		2.3 Customize Admin
-* 		2.4 Hide Login Errors
 * 	3.0 THEME
 * 		3.1 Clean <head>
-* 		3.2 Add Section Class
-* 		3.3 has_attachments()
-*		3.4 Force compile less
+* 		3.2 has_attachments()
 * 
 ***************************************************************/
 
@@ -171,12 +168,6 @@
 	}
 	add_action( 'wp_before_admin_bar_render', 'remove_items_from_adminbar' );
 	
-	
-/***************************************************************
-* 2.4 Hide Login Errors - removes detailed login error information for security
-***************************************************************/
-	
-	add_filter('login_errors', create_function('$a', "return null;"));
 
 /***************************************************************
 * 3.1 Clean <head>: Use Template instead.
@@ -206,27 +197,7 @@
 	
 	
 /***************************************************************
-* 3.2 Add Section Class: Add the top level page to the body class for coloured sections
-***************************************************************/
-
-	function body_class_section( $classes ) {
-	    global $wpdb, $post;
-	    if (is_page()) {
-	        if ($post->post_parent) {
-	            $parent  = end(get_post_ancestors($current_page_id));
-	        } else {
-	            $parent = $post->ID;
-	        }
-	        $post_data = get_post($parent, ARRAY_A);
-	        $classes[] = 'section-' . $post_data['post_name'];
-	    }
-	    return $classes;
-	}
-	add_filter( 'body_class', 'body_class_section' );
-	
-	
-/***************************************************************
-* 3.3 has_attachments(): returns true if post has attachments
+* 3.2 has_attachments(): returns true if post has attachments
 * Description: 
 ***************************************************************/
 	
@@ -244,17 +215,6 @@
 		else
 			return false;
 	}
-
-
-/***************************************************************
-* 3.4 Force compile less
-***************************************************************/
-
-	function always_compile_less() {
-		global $WPLessPlugin;
-		$WPLessPlugin->processStylesheets(true);
-	}
-	add_action( 'wp', 'always_compile_less' );
 		
 	
 /***************************************************************
