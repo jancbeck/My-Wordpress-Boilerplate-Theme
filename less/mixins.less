@@ -18,6 +18,11 @@
 	margin-right: auto;
 }
 
+/* Unit Conversion
+// ------------------------- */
+.font-size( @target: @baseFontSize, @context: 14 ) {
+    font-size: ( @target / @context ) + 0em;
+}
 
 /* Clearfix
 // ------------------------- */
@@ -69,6 +74,29 @@
 .reset-filter() {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
+
+/* Grid */
+
+.col {
+     -webkit-box-sizing:border-box;
+     -moz-box-sizing:border-box;
+     box-sizing:border-box;
+     -moz-background-clip:padding-box !important;
+     -webkit-background-clip:padding-box !important;
+     background-clip:padding-box !important;
+}
+.makeRow(@gutter) {
+  margin-left: @gutter * -1;
+  .fix;
+}
+.makeCol(@num, @gutter, @max_columns) {
+	@one_col: (100% - (@gutter * (@max_columns - 1))) / @max_columns;
+	width: (@one_col * @num) + (@gutte * (@num - 1));
+	margin-left: @gutter / 2;
+	margin-right: @gutter / 2;
+	padding: @gutter;
+}
+
 
 /* CSS3 */
 // -------------------------------------------------- */
