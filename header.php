@@ -9,10 +9,7 @@
 	
 	<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement) /* removes no-js class */</script>
 	<title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
-	<meta name="generator" content="WordPress" />
-	
-	<link rel="icon" href="<?php bloginfo('template_url'); ?>/images/favicon.ico" type="image/x-icon" />
-	
+		
 	<?php wp_head(); ?>
 </head>
 

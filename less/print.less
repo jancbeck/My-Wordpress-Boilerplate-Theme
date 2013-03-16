@@ -1,21 +1,43 @@
 @media print { 
-
-    * {
-        background: transparent !important;
-        color: #444 !important;
-        text-shadow: none;
+    body {
+        background: white;
+        font-size: 10pt;
+        margin: 3cm;
     }
-
-    a,
-    a:visited {
-        color: #444 !important;
+    .sidebar { display: none }
+    .content {
+        margin-left: 0;
+        float: none;
+        width: auto;
+    }
+    a {
+        font-weight: bold;
+        color: #000066;
         text-decoration: underline;
     }
-
-    img { page-break-inside: avoid }
-    
-    .header,
-    .footer {
-    	display: none;
+    .footer { display: none }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    h3 {
+        margin-left: 10px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+    blockquote,
+    table,
+    pre { page-break-inside: avoid }
+    ul,
+    ol,
+    dl { page-break-before: avoid }
+    img {
+        page-break-inside: avoid;
+        page-break-after: avoid;
     }
 }

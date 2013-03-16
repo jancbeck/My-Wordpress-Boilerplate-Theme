@@ -1,24 +1,29 @@
-/* =============================================================================
-   Tables
-   ========================================================================== */
+////////////
+// TABLES //
+////////////
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    text-align: center;
+	.border-radius()
+	border: 1px solid #DDD;
+	border-collapse: separate;
+	border-left: 0;
+	width: 100%;
+	border-spacing: 0;
+	margin-bottom: 15px;
 }
-td, th {
-	padding: .5em;
-	border: 1px solid @grey;
-	.box-shadow(inset 1px 1px 0 #fff);
+tr {
+	text-align: left;
 }
-th {
-	background: @grey;
+th, td {
+	padding: 7px 15px;
+	border-left: 1px solid #ddd;
+	font-weight: normal;
+	border-top: 1px solid #ddd;
+	vertical-align: top;
 }
-tr:nth-child(even),
+tr:first-child th, tr:first-child td {
+	border-top: 0;
+}
 tr:hover {
-	background: @light;
-}
-caption {
-	.heading;
+	background: #fafafa;
 }
