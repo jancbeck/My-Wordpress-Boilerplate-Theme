@@ -5,7 +5,7 @@ There are many of it but this one is mine.
 
 If you are using git to clone the repository do the following:
 
-    git clone --recursive git://github.com/jancbeck/My-Wordpress-Boilerplate theme
+    git clone --recursive git://github.com/jancbeck/My-Wordpress-Boilerplate project
 
 ## What it does:
 
