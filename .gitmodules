@@ -1,0 +1,6 @@
+[submodule "wp"]
+	path = wp
+	url = git://github.com/WordPress/WordPress.git
+[submodule "normalize"]
+	path = content/themes/project-name/less/
+	url = git://github.com/necolas/normalize.css.git

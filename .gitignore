@@ -20,3 +20,7 @@ Thumbs.db
 *.esproj
 *.sublime-project
 *.sublime-workspace
+
+/shared
+/local-config.php
+/content/plugins
