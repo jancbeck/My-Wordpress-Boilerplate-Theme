@@ -21,6 +21,6 @@ Thumbs.db
 *.sublime-project
 *.sublime-workspace
 
-/shared
 /local-config.php
 /content/plugins
+/content/uploads

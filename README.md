@@ -21,7 +21,7 @@ If you are using git to clone the repository do the following:
 ## Recommended Plugins
 * [WP-LESS](http://wordpress.org/extend/plugins/wp-less/)
 * [Use Google Libraries](http://wordpress.org/extend/plugins/use-google-libraries/)
-
+* [Console](http://wordpress.org/extend/plugins/console/)
 
 ## Credits:
 * [How to enqueue the bundled jQuery in footer – The Right Way](http://wpengineer.com/2482/enqueue-bundled-jquery-in-footer/)

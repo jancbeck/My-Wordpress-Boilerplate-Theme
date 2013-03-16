@@ -5,9 +5,9 @@
 /* TEAM */
 
   Web Development: Jan Beck
-  Site: www.jancbeck.de
+  Site: www.jancbeck.com
   Location: Germany
 
 /* SITE */
   Standards: HTML, CSS, JavaScript
-  Software: Espresso, Coda2, WordPress, Transmit
+  Software: Sublime Text 2, WordPress, Mac OS X, Git
