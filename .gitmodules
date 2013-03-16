@@ -1,6 +1,3 @@
 [submodule "content/themes/project-name/less/normalize"]
 	path = content/themes/project-name/less/normalize
 	url = git://github.com/necolas/normalize.css.git
-[submodule "wp"]
-	path = wp
-	url = git://github.com/WordPress/WordPress.git
