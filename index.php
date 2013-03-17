@@ -9,8 +9,4 @@
    <?php endwhile; ?>
  <?php endif; ?>
 
- <?php wp_nav_menu(array(
-	'theme_location' => 'main-nav'
-)); ?>
-
 <?php get_footer(); ?>
