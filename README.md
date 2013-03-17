@@ -5,17 +5,17 @@ There are many of it but this one is mine.
 
 If you are using git to clone the repository do the following:
 
-    git clone --recursive git://github.com/jancbeck/My-Wordpress-Boilerplate project
+    git clone --recursive git://github.com/jancbeck/My-Wordpress-Boilerplate
 
 ## What it does:
 
 ### Theme
 
-* Removes WordPress version number from <head>
+* Removes WordPress version number from `<head>`
 * Uses LESS. style.css is not outputed. Register your own stylesheets.
 * Includes a blank screenshot file.
-* Conditional classes for IE on <html> 
-* No-JS class on <html> 
+* Conditional classes for IE on `<html>`
+* No-JS class on `<html>`
 * index.html with various common HTML elements for your content-first styling
 
 ## Recommended Plugins
