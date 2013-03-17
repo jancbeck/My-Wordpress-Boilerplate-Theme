@@ -6,14 +6,14 @@ There are many of it but this one is mine.
 If you are using git to clone the repository do the following:
 
     git clone --recursive git://github.com/jancbeck/My-Wordpress-Boilerplate
+    
+Move humans.txt and .htaccess to your WordPress root. Install recommended plugins.
 
 ## What it does:
 
-### Theme
-
 * Removes WordPress version number from `<head>`
 * Uses LESS. style.css is not outputed. Register your own stylesheets.
-* Includes a blank screenshot file.
+* Includes a blank screenshot file
 * Conditional classes for IE on `<html>`
 * No-JS class on `<html>`
 * index.html with various common HTML elements for your content-first styling
@@ -24,7 +24,7 @@ If you are using git to clone the repository do the following:
 * [Console](http://wordpress.org/extend/plugins/console/)
 * [BackWPup](http://wordpress.org/extend/plugins/backwpup/)
 
-## Credits:
+## Recommended Readings:
 * [How to enqueue the bundled jQuery in footer – The Right Way](http://wpengineer.com/2482/enqueue-bundled-jquery-in-footer/)
 * [markjaquith / WordPress-Skeleton](https://github.com/markjaquith/WordPress-Skeleton)
 * [The Right Way to Remove WordPress Version Number](http://www.wpbeginner.com/wp-tutorials/the-right-way-to-remove-wordpress-version-number/)
