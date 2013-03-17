@@ -54,12 +54,12 @@ function enqueue_theme_scripts_and_styles() {
 
 	if ( class_exists( 'WPLessPlugin' ) ) {
 
-		wp_enqueue_style( 'style', get_stylesheet_directory_uri(). '/less/style.less', false, false , 'screen' );
-		wp_enqueue_style( 'style', get_stylesheet_directory_uri(). '/less/print.less', false, false , 'print' );
+		wp_enqueue_style( 'style', get_template_directory_uri(). '/less/style.less', false, false , 'screen' );
+		wp_enqueue_style( 'style', get_template_directory_uri(). '/less/print.less', false, false , 'print' );
 
 	} else {
 
-    	wp_enqueue_style( 'style', get_stylesheet_directory_uri(). '/style.css' );
+    	wp_enqueue_style( 'style', get_template_directory_uri(). '/style.css' );
     
     }
 }
