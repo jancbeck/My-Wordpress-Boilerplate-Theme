@@ -18,7 +18,7 @@ remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
 add_action( 'init', 'add_editor_styles' );
 add_action( 'init', 'add_theme_supports' );
 add_action( 'init', 'register_menus' );
-add_action( 'init', 'set_less_config' )
+add_action( 'init', 'set_less_config' );
 
 add_action( 'wp_enqueue_scripts', 'enqueue_theme_scripts_and_styles' );
 add_action( 'wp_default_scripts', 'enqueue_built_in_jquery_in_footer' );
@@ -54,8 +54,8 @@ function enqueue_theme_scripts_and_styles() {
 
 	if ( class_exists( 'WPLessPlugin' ) ) {
 
+		wp_enqueue_style( 'print', get_template_directory_uri(). '/less/print.less', false, false , 'print' );
 		wp_enqueue_style( 'style', get_template_directory_uri(). '/less/style.less', false, false , 'screen' );
-		wp_enqueue_style( 'style', get_template_directory_uri(). '/less/print.less', false, false , 'print' );
 
 	} else {
 
@@ -81,11 +81,13 @@ function add_editor_styles() {
 		add_editor_style( 'style.css' );
 }
 
-function set_less_config() {
-	$lessConfig = WPLessPlugin::getInstance()->getConfiguration();
-	$lessConfig->setUploadDir(get_stylesheet_directory(). '/css');
-	$lessConfig->setUploadUrl(get_stylesheet_directory_uri(). '/css');
-}
+ function set_less_config() {
+	if ( class_exists('WPLessPlugin') ) {
+		$lessConfig = WPLessPlugin::getInstance()->getConfiguration();
+		$lessConfig->setUploadDir(get_stylesheet_directory(). '/css');
+		$lessConfig->setUploadUrl(get_stylesheet_directory_uri(). '/css');
+	}
+ }
 
 function enqueue_built_in_jquery_in_footer( &$scripts ) {
 	if ( ! is_admin() ) $scripts->add_data( 'jquery', 'group', 1 );
@@ -99,7 +101,7 @@ function bloginfo_shortcode( $atts ) {
 }
 
 function hide_default_meta_boxes( $hidden ) {
-    $hidden = array( 'postexcerpt', 'slugdiv', 'postcustom', 'trackbacksdiv', 'commentstatusdiv', 'commentsdiv', 'authordiv', 'revisionsdiv' );
+	return array( 'postexcerpt', 'slugdiv', 'postcustom', 'trackbacksdiv', 'commentstatusdiv', 'commentsdiv', 'authordiv', 'revisionsdiv' );
 }
 
 function hide_default_dashboard_widgets() {
