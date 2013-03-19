@@ -15,7 +15,7 @@ remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
 remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
 remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
 
-add_action( 'init', 'add_editor_styles' );
+//add_action( 'init', 'add_editor_styles' );
 add_action( 'init', 'add_theme_supports' );
 add_action( 'init', 'register_menus' );
 add_action( 'init', 'set_less_config' );
@@ -41,7 +41,12 @@ add_filter( 'the_generator', '__return_false' );
 
 add_shortcode( 'bloginfo', 'bloginfo_shortcode' );
 
+////////////////
+// Debugging  //
+////////////////
 
+if (function_exists('c'))
+	c( $wp_query );
 
 /** Functions ************************************************************/
 
@@ -50,12 +55,12 @@ function enqueue_theme_scripts_and_styles() {
 
 	wp_deregister_script( 'l10n') ;
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'app', get_template_directory_uri(). '/js/app.js', array('jquery'), false, true ); 
+	wp_enqueue_script( 'app', get_template_directory_uri(). '/scripts/app.js', array('jquery'), false, true ); 
 
 	if ( class_exists( 'WPLessPlugin' ) ) {
 
-		wp_enqueue_style( 'print', get_template_directory_uri(). '/less/print.less', false, false , 'print' );
-		wp_enqueue_style( 'style', get_template_directory_uri(). '/less/style.less', false, false , 'screen' );
+		wp_enqueue_style( 'print', get_template_directory_uri(). '/styles/print.less', false, false , 'print' );
+		wp_enqueue_style( 'style', get_template_directory_uri(). '/styles/style.less', false, false , 'screen' );
 
 	} else {
 
@@ -75,7 +80,7 @@ function register_menus() {
 }
 
 function add_editor_styles() {
-    if ( class_exists('WPLessPlugin') )
+	if ( class_exists('WPLessPlugin') )
 		add_editor_style( 'less/editor.less' );
 	else
 		add_editor_style( 'style.css' );
@@ -118,11 +123,11 @@ function hide_default_dashboard_widgets() {
 }  
 
 function add_admin_css() {
-    if ( class_exists( 'WPLessPlugin' ) ) wp_enqueue_style( 'admin', get_stylesheet_directory_uri() . '/less/admin.less' );
+    if ( class_exists( 'WPLessPlugin' ) ) wp_enqueue_style( 'admin', get_stylesheet_directory_uri() . '/styles/admin.less' );
 }
 
 function add_admin_js() {
-     wp_enqueue_script( 'admin', get_bloginfo('template_directory'). '/js/admin.js' );
+     wp_enqueue_script( 'admin', get_bloginfo('template_directory'). '/scripts/admin.js' );
 }
 
 function remove_items_from_adminbar(){
