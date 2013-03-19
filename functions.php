@@ -24,8 +24,8 @@ add_action( 'wp_enqueue_scripts', 'enqueue_theme_scripts_and_styles' );
 add_action( 'wp_default_scripts', 'enqueue_built_in_jquery_in_footer' );
 
 add_action( 'admin_menu', 'hide_default_dashboard_widgets' );
-add_action( 'admin_print_styles', 'add_admin_css' );
-add_action( 'admin_print_scripts', 'add_admin_js' );
+add_action( 'admin_print_styles', 'add_custom_admin_styles' );
+add_action( 'admin_print_scripts', 'add_custom_admin_scripts' );
 add_action( 'wp_before_admin_bar_render', 'remove_items_from_adminbar' );
 
 /////////////
@@ -122,11 +122,11 @@ function hide_default_dashboard_widgets() {
 	remove_meta_box('dashboard_secondary', 'dashboard', 'core');
 }  
 
-function add_admin_css() {
+function add_custom_admin_styles() {
     if ( class_exists( 'WPLessPlugin' ) ) wp_enqueue_style( 'admin', get_stylesheet_directory_uri() . '/styles/admin.less' );
 }
 
-function add_admin_js() {
+function add_custom_admin_scripts() {
      wp_enqueue_script( 'admin', get_bloginfo('template_directory'). '/scripts/admin.js' );
 }
 
