@@ -15,4 +15,4 @@
 
 <body <?php body_class(); ?>>
 
-<?php the_part( 'navigation' ); ?>
+<?php part( 'navigation' ); ?>
