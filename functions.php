@@ -105,7 +105,7 @@ function bloginfo_shortcode( $atts ) {
     return get_bloginfo( $key );
 }
 
-function the_part( $slug, $name = null ) {
+function part( $slug, $name = null ) {
 	echo get_part( $slug, $name );
 }
 	function get_part( $slug, $name = null ) {
