@@ -10,9 +10,9 @@
 	<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement) /* removes no-js class */</script>
 	<title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
 		
-	<?php wp_head(); ?>
+	<?php wp_head() ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class() ?>>
 
-<?php part( 'navigation' ); ?>
+<?php part( 'navigation' ) ?>
