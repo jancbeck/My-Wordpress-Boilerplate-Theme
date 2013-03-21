@@ -1,12 +1,11 @@
-<?php get_header(); ?>
+<?php the_part( 'header' ); ?>
 
-<?php if (have_posts()) : ?>
-   <?php while (have_posts()) : the_post(); ?>	
+<?php foreach ( array( 'navigation', 'content', 'lists', 'forms' ) as $name ) : ?>
+	
+	<h2><?php echo ucfirst( $name )?></h2>
+	
+	<?php the_part( 'dummy', $name ); ?>
 
-   		<h1><?php the_title(); ?></h1>
-   		<?php the_content();?>
-   
-   <?php endwhile; ?>
- <?php endif; ?>
+<?php endforeach; ?>
 
-<?php get_footer(); ?>
+<?php the_part( 'footer' ); ?>

@@ -105,6 +105,17 @@ function bloginfo_shortcode( $atts ) {
     return get_bloginfo( $key );
 }
 
+function the_part( $slug, $name = null ) {
+	echo get_part( $slug, $name );
+}
+	function get_part( $slug, $name = null ) {
+		ob_start();
+		get_template_part('parts/'. $slug, $name);
+		$part = ob_get_contents();
+		ob_clean();
+		return $part;
+	}
+
 function hide_default_meta_boxes( $hidden ) {
 	return array( 'postexcerpt', 'slugdiv', 'postcustom', 'trackbacksdiv', 'commentstatusdiv', 'commentsdiv', 'authordiv', 'revisionsdiv' );
 }
