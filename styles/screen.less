@@ -1,0 +1,201 @@
+/* Normalize CSS
+--------------------------------------------- */
+
+@import "@{template_directory_uri}/styles/normalize/normalize.css";
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* LESS variables 
+--------------------------------------------- */
+
+@brand:	#d02; 	
+@darker: #555; 
+@dark: #888; 
+@grey: #aaa; 
+@light:	#ddd; 
+@lighter:	#fafafa; 
+
+@text-color: @brand;
+@link-color: #d02;
+@link-hover-color: @text-color;
+
+@font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+@base-font-size: 16;
+@base-line-height: 1.5;
+
+@style_url: @stylesheet_directory_uri;
+@url: @template_directory_uri;
+
+/* LESS mixins 
+--------------------------------------------- */
+
+.border-radius (@radius: 3px) {
+	-webkit-border-radius: @radius;
+	        border-radius: @radius;
+  -webkit-background-clip: padding-box; 
+		  background-clip: padding-box;
+	}
+.rounded ( @radius ) { .border-radius( @radius ) }
+.box-shadow (@x: 0, @y: 0, @blur: 2px, @color: #000) {
+	-webkit-box-shadow: @arguments;
+	        box-shadow: @arguments;
+	}
+.transition (@property: all, @duration: .2s, @timing: ease-in-out) {
+	-webkit-transition: @arguments;
+	   -moz-transition: @arguments;
+	     -o-transition: @arguments;
+	        transition: @arguments;
+	}
+.transform ( @transform-function ) {
+  -webkit-transform: @transform-function;
+     -moz-transform: @transform-function;
+      -ms-transform: @transform-function;
+       -o-transform: @transform-function;
+          transform: @transform-function;
+}
+.linear-gradient( @begin: black, @end: white, @switch : 100% ) {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@begin), to(@switch));
+	background-image: -webkit-linear-gradient(top, @begin, @end @switch);
+	background-image: -moz-linear-gradient(top, @begin, @end @switch);
+	background-image: -o-linear-gradient(top, @begin, @end @switch);
+	background-image: -ms-linear-gradient(top, @begin, @end @switch);
+	background-image: linear-gradient(top, @begin, @end @switch);
+}
+.opacity( @op:1 ) {
+	@opacity: @op * 100;
+	opacity: @op;
+	filter: ~"alpha(opacity=@{opacity})";
+} 
+.font-size( @target: @base-font-size, @context: @base-font-size ) {
+    font-size: ( @target / @context ) + 0em;
+}
+
+/* helper classes 
+--------------------------------------------- */
+
+.hidden { position: absolute !important; clip: rect(1px 1px 1px 1px); }
+.no-text, .ir {
+	font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+}
+.nav, .menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.fix, .cf {
+		*zoom: 1;
+		&:before,
+		&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}
+.divider {
+	float: right; 
+	display: block;
+	height: 47px;
+	width: 1px;
+	margin: -7px 6px 0 10px; 
+	background-image: -webkit-linear-gradient(top, rgba(0,93,131,.5) 50%, rgba(0,93,131,.22) 100%); /* good in safari & chrome */
+	background-image: -moz-linear-gradient(top, rgba(0,93,131,.5) 50%, rgba(0,93,131,.22) 100%); /* firefox friendly shit */
+	.box-shadow( 1px 0 0 0 rgba(255, 255, 255,.1) )
+}
+
+/* typography
+--------------------------------------------- */
+
+body {
+	.font-size( );
+	font-family: @font-family;
+	line-height: @base-line-height;
+}
+a:link, a:visited {
+	color: @link-color;
+	text-decoration: none;
+}
+a:hover {
+	color: @link-hover-color;
+}
+h1, .h1 {
+	.font-size(48);
+	font-weight: 200;
+}
+h2, .h2 {
+	.font-size(36);
+	font-weight: 200;
+}
+h3, .h3 {
+	.font-size(24);
+	font-weight: bold;
+}
+h4, .h4, h5, .h5, h6, .h6, .h {
+	.font-size(18);
+	font-weight: bold;
+}
+
+/* tables 
+--------------------------------------------- */
+
+table {
+	.rounded( 6px );
+	border: 1px solid @light;
+	border-collapse: separate;
+	border-left: 0;
+	width: 100%;
+	border-spacing: 0;
+	margin-bottom: 1em;
+}
+tr {
+	text-align: left;
+}
+th, td {
+	padding: .5em 1em;
+	border-left: 1px solid @light;
+	font-weight: normal;
+	border-top: 1px solid @light;
+	vertical-align: top;
+}
+th {
+	font-weight: bold;
+	border-bottom: 2px solid @light;
+}
+tr:first-child th, tr:first-child td {
+	border-top: 0;
+}
+tr:hover {
+	background: @lighter;
+}
+
+/* page structure 
+--------------------------------------------- */
+
+body {
+	max-width: 60em;
+	margin: auto;
+	padding: 10px;
+}
+
+/* header 
+--------------------------------------------- */
+
+.header {
+	
+}
+
+/* footer 
+--------------------------------------------- */
+
+.footer {
+	
+}
+
+@import "extend";
