@@ -30,7 +30,7 @@ Move humans.txt and .htaccess to your WordPress root. Install recommended plugin
 
 ### For server performance / security:
 * Removes WordPress version number and other junk from `<head>`
-* `.htaccess` uses many HTML5 Boilerplate settings to optimize caching behavior
+* `.htaccess` uses many HTML5 Boilerplate settings to optimize caching behavior and security
 
 ## Recommended Plugins
 * [WP-LESS](http://wordpress.org/extend/plugins/wp-less/)
@@ -45,6 +45,7 @@ Move humans.txt and .htaccess to your WordPress root. Install recommended plugin
 * [Don't overthink it grids](http://css-tricks.com/dont-overthink-it-grids/)
 * [Conditional Stylesheets vs CSS Hacks? Answer: Neither!](http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/)
 * [Avoiding the FOUC v3.0](http://paulirish.com/2009/avoiding-the-fouc-v3/)
+* [Firefox-Safe "Helvetica Neue Light" Font Stack by nrrrdcore](https://gist.github.com/nrrrdcore/2994238)
 
 ## To do:
 * `add_editor_styles()` not working with less files yet
