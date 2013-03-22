@@ -60,7 +60,7 @@ function enqueue_theme_scripts_and_styles() {
 	if ( class_exists( 'WPLessPlugin' ) ) {
 
 		wp_enqueue_style( 'print', get_template_directory_uri(). '/styles/print.less', false, false , 'print' );
-		wp_enqueue_style( 'style', get_template_directory_uri(). '/styles/style.less', false, false , 'screen' );
+		wp_enqueue_style( 'style', get_template_directory_uri(). '/styles/screen.less', false, false , 'screen' );
 
 	} else {
 
