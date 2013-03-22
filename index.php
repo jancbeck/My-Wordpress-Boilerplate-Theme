@@ -1,5 +1,5 @@
 <?php part( 'header' ) ?>
 
-	<?php part( 'dummy' ) ?>
+	<?php part( 'content' ) ?>
 
 <?php part( 'footer' ) ?>
