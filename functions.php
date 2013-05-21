@@ -86,13 +86,13 @@ function add_editor_styles() {
 		add_editor_style( 'style.css' );
 }
 
- function set_less_config() {
+function set_less_config() {
 	if ( class_exists('WPLessPlugin') ) {
 		$lessConfig = WPLessPlugin::getInstance()->getConfiguration();
 		$lessConfig->setUploadDir(get_stylesheet_directory(). '/css');
 		$lessConfig->setUploadUrl(get_stylesheet_directory_uri(). '/css');
 	}
- }
+}
 
 function enqueue_built_in_jquery_in_footer( &$scripts ) {
 	if ( ! is_admin() ) $scripts->add_data( 'jquery', 'group', 1 );
