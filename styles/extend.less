@@ -1,2 +1,29 @@
-/* dummy content 
+/* example content 
 --------------------------------------------- */
+
+.horizontal-nav, .vertical-nav {
+	font-size: 120%;
+}
+.example {
+	.border-radius( @rounding @rounding 0 0 );
+	border: 1px solid @light;
+	padding: 0 @large-spacing @large-spacing;
+	border-bottom: 0;
+	margin-bottom: -1.5em;
+	position: relative;
+	
+	&:before, pre:before {
+		.rounded(0 @rounding 0 @rounding);
+		.opacity();
+		border: 1px solid @light;
+		background-color: @lighter;
+		text-transform: uppercase;
+		position: absolute;
+		top: -1px;
+		right: -1px;
+		content: "Preview";
+		padding: @tiny-spacing @smaller-spacing;
+		font-family: @font-monospaced;
+		font-size: 90%;
+	}
+}
