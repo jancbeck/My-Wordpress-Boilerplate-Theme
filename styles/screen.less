@@ -12,44 +12,60 @@
 /* LESS variables 
 --------------------------------------------- */
 
-@brand:	#d02; 	
-@darker: #555; 
-@dark: #888; 
-@grey: #aaa; 
-@light:	#ddd; 
-@lighter:	#fafafa; 
+@brand:		#d02; 	
+@darker: 	#555; 
+@dark: 		#888; 
+@grey: 		#aaa; 
+@light:		#ddd; 
+@lighter:	#fafafa;
 
-@text-color: @brand;
-@link-color: #d02;
-@link-hover-color: @text-color;
+@text-color: 		#333;
+@link-color: 		@brand;
+@link-hover-color: 	@text-color;
 
-@font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-@base-font-size: 16;
-@base-line-height: 1.5;
+@font-family: 		"HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+@font-monospaced: 	Menlo, Monaco, Consolas, "Courier New", monospace;
+@base-font-size: 	16;
+@base-line-height: 	1.5;
+@bold-weight: 		700;
+@regular-weight: 	300;
 
 @style_url: @stylesheet_directory_uri;
-@url: @template_directory_uri;
+@url: 		@template_directory_uri;
+
+@spacing: 			1em;
+@small-spacing: 	@spacing / 4 * 3;
+@smaller-spacing: 	@spacing / 2;
+@tiny-spacing: 		@spacing / 4;
+@large-spacing: 	@spacing * 3 / 2;
+@larger-spacing: 	@spacing * 2;
+@huge-spacing: 		@spacing 4;
+
+@rounding: @tiny-spacing;
 
 /* LESS mixins 
 --------------------------------------------- */
 
-.border-radius (@radius: 3px) {
+.border-radius (@radius: @rounding) {
 	-webkit-border-radius: @radius;
 	        border-radius: @radius;
   -webkit-background-clip: padding-box; 
 		  background-clip: padding-box;
-	}
-.rounded ( @radius ) { .border-radius( @radius ) }
-.box-shadow (@x: 0, @y: 0, @blur: 2px, @color: #000) {
-	-webkit-box-shadow: @arguments;
-	        box-shadow: @arguments;
-	}
-.transition (@property: all, @duration: .2s, @timing: ease-in-out) {
+}
+.rounded ( @radius: @rounding ) { .border-radius( @radius ) }
+.box-shadow ( @shadow: 1px 1px 2px fade( black, 30% ) ) {
+	-webkit-box-shadow: @shadow;
+	        box-shadow: @shadow;
+}
+.inset-shadow ( @shadow: inset 1px 1px 2px fade( black, 7% ) ) {
+	.box-shadow( @shadow )
+}
+.transition (@property: all, @duration: .3s, @timing: ease-in-out) {
 	-webkit-transition: @arguments;
 	   -moz-transition: @arguments;
 	     -o-transition: @arguments;
 	        transition: @arguments;
-	}
+}
 .transform ( @transform-function ) {
   -webkit-transform: @transform-function;
      -moz-transform: @transform-function;
@@ -57,7 +73,8 @@
        -o-transform: @transform-function;
           transform: @transform-function;
 }
-.linear-gradient( @begin: black, @end: white, @switch : 100% ) {
+.vertical-gradient( @begin: black, @end: white, @switch : 100% ) {
+	background-color: @begin;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(@begin), to(@switch));
 	background-image: -webkit-linear-gradient(top, @begin, @end @switch);
 	background-image: -moz-linear-gradient(top, @begin, @end @switch);
@@ -65,7 +82,16 @@
 	background-image: -ms-linear-gradient(top, @begin, @end @switch);
 	background-image: linear-gradient(top, @begin, @end @switch);
 }
-.opacity( @op:1 ) {
+.horizontal-gradient( @begin: black, @end: white, @switch : 100% ) {
+	background-color: @begin;
+	background-image: -webkit-gradient(linear, left top, left top, from(@begin), to(@switch));
+	background-image: -webkit-linear-gradient(left, @begin, @end @switch);
+	background-image: -moz-linear-gradient(left, @begin, @end @switch);
+	background-image: -o-linear-gradient(left, @begin, @end @switch);
+	background-image: -ms-linear-gradient(left, @begin, @end @switch);
+	background-image: linear-gradient(left, @begin, @end @switch);
+}
+.opacity( @op: .5 ) {
 	@opacity: @op * 100;
 	opacity: @op;
 	filter: ~"alpha(opacity=@{opacity})";
@@ -74,49 +100,31 @@
     font-size: ( @target / @context ) + 0em;
 }
 
-/* helper classes 
+/* utility classes 
 --------------------------------------------- */
 
+.fix, .cf, .clearfix { *zoom: 1; &:before, &:after { display: table; content: ""; } &:after { clear: both; } }
 .hidden { position: absolute !important; clip: rect(1px 1px 1px 1px); }
-.no-text, .ir {
-	font: 0/0 a;
-    text-shadow: none;
-    color: transparent;
-}
-.nav, .menu {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.fix, .cf {
-		*zoom: 1;
-		&:before,
-		&:after {
-		display: table;
-		content: "";
-	}
-	&:after {
-		clear: both;
-	}
-}
-.divider {
-	float: right; 
-	display: block;
-	height: 47px;
-	width: 1px;
-	margin: -7px 6px 0 10px; 
-	background-image: -webkit-linear-gradient(top, rgba(0,93,131,.5) 50%, rgba(0,93,131,.22) 100%); /* good in safari & chrome */
-	background-image: -moz-linear-gradient(top, rgba(0,93,131,.5) 50%, rgba(0,93,131,.22) 100%); /* firefox friendly shit */
-	.box-shadow( 1px 0 0 0 rgba(255, 255, 255,.1) )
-}
+.no-text, .ir { font: 0/0 a; text-shadow: none; color: transparent; }
+
+.bold { font-weight: @bold-weight; }
+.regular { font-weight: @regular-weight; }
+
+.align { margin-bottom: @large-spacing; }
+.left { float: left; }
+.right { float: right; }
+.align.left { margin-right: @large-spacing; }
+.align.right { margin-left: @large-spacing; }
 
 /* typography
 --------------------------------------------- */
 
 body {
 	.font-size( );
+	.regular;
 	font-family: @font-family;
 	line-height: @base-line-height;
+	color: @text-color;
 }
 a:link, a:visited {
 	color: @link-color;
@@ -126,53 +134,201 @@ a:hover {
 	color: @link-hover-color;
 }
 h1, .h1 {
-	.font-size(48);
-	font-weight: 200;
+	.font-size( @base-font-size * 3 );
+	.regular;
+	line-height: @spacing;
+	margin-bottom: @spacing / 2;
+}
+h2, h3, h4, h5, h6,
+.h2, .h3, .h4, .h5, .h6 {
+	line-height: @large-spacing;
 }
 h2, .h2 {
-	.font-size(36);
-	font-weight: 200;
+	.font-size( @base-font-size * 2 );
+	.regular;
+	margin-bottom: @smaller-spacing;
 }
 h3, .h3 {
-	.font-size(24);
-	font-weight: bold;
+	.font-size( @base-font-size / 2 * 3 );
+	.bold;
+	border-bottom: 1px solid @light;
+	margin-bottom: @spacing;
 }
 h4, .h4, h5, .h5, h6, .h6, .h {
-	.font-size(18);
-	font-weight: bold;
+	.font-size( @base-font-size * 1.125);
+	.bold;
+	margin-bottom: @spacing;
+}
+.lead, [role="article"] > p:first-of-type {
+	.font-size( @base-font-size / 4 * 5 );
+	margin-bottom: @spacing;
+}
+p, .p {
+	margin: 0 0 @large-spacing;
+}
+.muted {
+	color: @dark;
+}
+small, .small {
+	font-size: 85%;
+}
+/* lists 
+--------------------------------------------- */
+
+dt {
+	.bold;
+}
+dd {
+	padding: @tiny-spacing @spacing @smaller-spacing;
+	margin: 0;
 }
 
 /* tables 
 --------------------------------------------- */
 
-table {
+table, .table {
 	.rounded( 6px );
+	.p;
 	border: 1px solid @light;
 	border-collapse: separate;
 	border-left: 0;
 	width: 100%;
 	border-spacing: 0;
-	margin-bottom: 1em;
+
+	tr {
+		text-align: left;
+	}
+	th, td {
+		padding: @smaller-spacing @small-spacing;
+		border-left: 1px solid @light;
+		font-weight: normal;
+		border-top: 1px solid @light;
+		vertical-align: top;
+	}
+	th {
+		.bold;
+		border-bottom: 1px solid @light;
+	}
+	tr:first-child th, tr:first-child td {
+		border-top: 0;
+	}
+	tr:hover {
+		background: @lighter;
+	}
 }
-tr {
-	text-align: left;
+
+/* forms & text containers
+--------------------------------------------- */
+
+.well {
+	.rounded();
+	.inset-shadow( );
+	background-color: @lighter;
+	border: 1px solid @light;
+	
 }
-th, td {
-	padding: .5em 1em;
-	border-left: 1px solid @light;
-	font-weight: normal;
-	border-top: 1px solid @light;
-	vertical-align: top;
+code, pre,
+.code, .pre {
+	.well;
+	font-family: @font-monospaced;
+	font-size: 90%;
+	-moz-tab-size: 4;
+	  -o-tab-size: 4;
+	     tab-size: 4;
 }
-th {
-	font-weight: bold;
-	border-bottom: 2px solid @light;
+pre, .pre {
+	.p;
+	display: block;
+	padding: @large-spacing @larger-spacing;
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;
+	position: relative;
+
+	&:before {	
+		.rounded(0 @rounding 0 @rounding);
+		.opacity();
+		border: 1px solid @light;
+		background-color: white;
+		text-transform: uppercase;
+		position: absolute;
+		top: -1px;
+		right: -1px;
+		content: "Code";
+		padding: @tiny-spacing @smaller-spacing;
+	}
 }
-tr:first-child th, tr:first-child td {
-	border-top: 0;
+code, .code {
+	.inset-shadow( 0 0 0 transparent );
+	padding: @tiny-spacing @smaller-spacing;
+	white-space: nowrap;
+	color: @link-color;
 }
-tr:hover {
-	background: @lighter;
+form {
+	p {
+		margin-bottom: @spacing;
+	}
+	ul {
+		.menu;
+	}
+}
+fieldset {
+	margin: 0 0 @smaller-spacing;
+	padding: 0;
+	border: none;
+}
+label, select, button, input[type="button"], input[type="reset"], input[type="submit"], input[type="radio"], input[type="checkbox"] {
+	cursor: pointer;
+}
+label {
+	display: block;
+	margin-bottom: @smaller-spacing;
+	.bold;
+}
+button, input, select, textarea {
+	margin: 0;
+	font-size: 100%;
+	vertical-align: middle;
+}
+select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+	.border-radius();
+	display: inline-block;
+	padding: @tiny-spacing @smaller-spacing;
+	margin-bottom: @smaller-spacing;
+	color: @darker;
+	vertical-align: middle;
+	width: 100%;
+
+	@media ( min-width: 30em ) { 
+		width: 50%;
+	}
+}
+select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
+	outline: thin dotted #333;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+	.well;
+	.transition();
+	@fade: fade( @brand, 60% );
+
+	&:focus {
+		border-color: fade( @brand, 80% );
+		outline: 0;
+		outline: thin dotted 9;
+		.box-shadow( ~"inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px @{fade}" );
+	}
+}
+textarea {
+	resize: vertical;
+	overflow: auto;
+	min-height: 8em;
+}
+input[type="radio"], input[type="checkbox"] {
+	margin: @tiny-spacing 0 0;
+	line-height: normal;
 }
 
 /* page structure 
@@ -198,4 +354,13 @@ body {
 	
 }
 
-@import "extend";
+/* patterns
+--------------------------------------------- */
+
+@import "patterns.less";
+
+/* patterns
+--------------------------------------------- */
+
+@import "extend.less";
+

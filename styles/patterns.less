@@ -1,0 +1,165 @@
+.btn( @background: @brand, @text: white ) {
+	.border-radius();
+	display: inline-block;
+	border: none;
+	background-color: @background;
+	color: @text;
+	padding: @tiny-spacing @smaller-spacing;
+	cursor: pointer;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active {
+		background-color: darken(@background, 10%);
+		color: @text;
+	}
+}
+.btn { .btn( @brand ) }
+.btn-inverse {
+	.btn( @text-color )
+}
+.divider {
+	position: absolute;
+	content: "";
+	background: @light;
+}
+.vertical-divider {
+	.divider;
+	height: 100%;
+	width: 1px;
+	left: 0;
+	top: 0;
+}
+.horizontal-divider {
+	.divider;
+	height: 1px;
+	width: 100%;
+}
+.inverse-link-color() {
+	color: @text-color;
+	&:hover {
+		color: @link-color;
+	}
+}
+.nav, .menu, .unstyled {
+	list-style: none;
+	padding: 0;
+	margin-left: 0;
+
+	.current-menu-item, .current {
+		.bold;
+	}
+}
+.inline {
+	li {
+		padding: @smaller-spacing @smaller-spacing @smaller-spacing @small-spacing;
+		display: inline-block;
+	}
+}
+.horizontal-nav {
+	a {
+		.inverse-link-color();
+	}
+	.nav;
+	.inline;
+
+	li {		
+		&:first-child {
+			padding-left: 0;
+		}
+	}
+}
+.vertical-nav {
+	.nav;
+
+	a {
+		padding: @smaller-spacing @smaller-spacing @smaller-spacing 0;
+		display: block;
+	}
+	.current-menu-item {
+		a {
+			.inverse-link-color();
+		}
+	}
+}
+.divided-nav {
+	li {
+		position: relative;
+
+		&:before {
+			.horizontal-divider;
+		}
+		&:first-child {
+			&:before {
+				.hidden;
+			}
+		}
+	}
+	&.horizontal-nav {
+		li {
+			position: relative;
+
+			&:before {
+				.vertical-divider;
+			}
+		}
+	}
+
+}
+.btn-nav {
+	a {
+		.btn
+	}
+	.current-menu-item a {
+		.btn-inverse;
+	}
+}
+.pagination {
+	text-align: center;
+	margin: @larger-spacing 0;
+
+	ul {
+		.nav;
+		.well;
+		display: inline-block;
+		margin: 0;
+	}
+	li {
+		position: relative;
+		display: inline-block;
+
+		&:before {
+			.vertical-divider;
+		}
+		&:first-child {
+			&:before {
+				.hidden;
+			}
+		}
+	}
+	.page-numbers .page-numbers {
+		padding: @smaller-spacing @smaller-spacing @smaller-spacing @small-spacing;
+		display: inline-block;
+		text-align: center;
+	}
+	.dots {
+		padding: @tiny-spacing @tiny-spacing @tiny-spacing @smaller-spacing;
+	}
+}
+
+.meta {
+	dt {
+		.left;
+		text-align: right;
+		width: 30%;
+		padding-right: @small-spacing;
+
+		&:after {
+			content: ": ";
+		}
+	}
+	dd {
+		padding: 0 0 0 30%;
+	}
+}
