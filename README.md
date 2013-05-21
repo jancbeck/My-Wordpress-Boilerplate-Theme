@@ -49,3 +49,4 @@ Move humans.txt and .htaccess to your WordPress root. Install recommended plugin
 
 ## To do:
 * `add_editor_styles()` not working with less files yet
+* mobile first
