@@ -283,8 +283,8 @@
 		'type'       => 'list',
 		'total'        => 15,
 		'current'      => 6,
-		'prev_text'    => __('←'),
-		'next_text'    => __('→'),
+		'prev_text'    => '←',
+		'next_text'    => '→',
 	) ) ?>
 	</nav>
 </div>
