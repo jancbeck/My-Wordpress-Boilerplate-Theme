@@ -103,9 +103,13 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 49.0,
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"gist",
 				"Gist: Open Gist"
@@ -129,10 +133,6 @@
 			[
 				"Format",
 				"Format: Javascript"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"add",
@@ -171,7 +171,7 @@
 				"About"
 			]
 		],
-		"width": 579.0
+		"width": 507.0
 	},
 	"console":
 	{
@@ -188,16 +188,19 @@
 	},
 	"file_history":
 	[
+		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/styles/patterns.less",
+		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/styles/print.less",
+		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/styles/wordpress.less",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/WP-Boilerplate.sublime-workspace",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/WP-Boilerplate.sublime-project",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/.gitignore",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/humans.txt",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/styles/extend.less",
+		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/styles/base.less",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/styles/screen.less",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/README.md",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/functions.php",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/styles/editor.less",
-		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/styles/patterns.less",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/parts/content.php",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/parts/header.php",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/parts/footer.php",
@@ -208,7 +211,6 @@
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/parts/dummy-navigation.php",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/parts/dummy-lists.php",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/styles/layout.less",
-		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/styles/print.less",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/parts/dummy-content.php",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/styles/tables.less",
 		"/Users/jan/Dropbox/Projekte/Development/My-Wordpress-Boilerplate/styles/variables.less",
@@ -309,6 +311,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"@",
+			"@huge-spacing",
+			"@larger-spacing",
+			"@large-spacing",
+			"@tiny-spacing",
+			"@smaller-spacing",
+			"@small-spacing",
+			"@spacing",
+			"bold-weight",
+			"regular-weight",
+			"@huge-spacing",
+			"@larger-spacing",
+			"@large-spacing",
+			"@tiny-spacing",
+			"@smaller-spacing",
+			"@small-spacing",
 			"jan",
 			"enqueue_theme_scripts_and_styles",
 			"meta",
@@ -391,6 +409,21 @@
 		"regex": false,
 		"replace_history":
 		[
+			"4em",
+			"2em",
+			"1.5em",
+			".25em",
+			".5em",
+			".75em",
+			"1em",
+			"bold",
+			"regular",
+			"4em",
+			"2em",
+			"1.5em",
+			".25em",
+			".5em",
+			".75em",
 			"&lt;",
 			"&gt;",
 			"@font-monospaced",
