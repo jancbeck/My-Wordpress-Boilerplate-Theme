@@ -7,7 +7,7 @@
 <head>
 	<meta charset="utf-8" />
 	
-	<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement) /* removes no-js class */</script>
+	<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 	<title><?php wp_title('|', true, 'right'); bloginfo('name'); ?></title>
 		
 	<?php wp_head() ?>
