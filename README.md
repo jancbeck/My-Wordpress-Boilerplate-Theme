@@ -1,4 +1,4 @@
-# This is My WordPress Boilerplate
+# This is My WordPress Boilerplate Theme
 There are many of it but this one is mine.
 
 ## Installation
