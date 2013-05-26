@@ -7,14 +7,14 @@
 .example {
 	.border-radius( @rounding @rounding 0 0 );
 	border: 1px solid @light;
-	padding: 0 @large-spacing @large-spacing;
+	padding: 0 1.5em 1.5em;
 	border-bottom: 0;
 	margin-bottom: -1.5em;
 	position: relative;
 	
 	&:before, pre:before {
 		.rounded(0 @rounding 0 @rounding);
-		.opacity();
+		opacity: .5;
 		border: 1px solid @light;
 		background-color: @lighter;
 		text-transform: uppercase;
@@ -22,7 +22,7 @@
 		top: -1px;
 		right: -1px;
 		content: "Preview";
-		padding: @tiny-spacing @smaller-spacing;
+		padding: .25em .5em;
 		font-family: @font-monospaced;
 		font-size: 90%;		
 	}

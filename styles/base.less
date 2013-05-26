@@ -16,12 +16,12 @@ img {
 /* LESS variables 
 --------------------------------------------- */
 
-@brand:		#d02; 	
-@darker: 	#555; 
-@dark: 		#888; 
-@grey: 		#aaa; 
-@light:		#ddd; 
-@lighter:	#fafafa;
+@brand:				#d02; 	
+@darker: 			#555; 
+@dark: 				#888; 
+@grey: 				#aaa; 
+@light:				#ddd; 
+@lighter:			#fafafa;
 
 @text-color: 		#333;
 @link-color: 		@brand;
@@ -31,10 +31,10 @@ img {
 @font-monospaced: 	Menlo, Monaco, Consolas, "Courier New", monospace;
 @base-font-size: 	16;
 @base-line-height: 	1.5;
-@bold: 		700;
-@regular: 	300;
+@bold: 				700;
+@regular: 			300;
 
-@rounding: .25em;
+@rounding: 			.25em;
 
 /* LESS mixins 
 --------------------------------------------- */
@@ -93,7 +93,7 @@ img {
 	border: none;
 	background-color: @background;
 	color: @text;
-	padding: @tiny-spacing @smaller-spacing;
+	padding: .25em .5em;
 	cursor: pointer;
 
 	&:hover,
@@ -155,8 +155,8 @@ a:hover {
 h1, .h1 {
 	.font-size( @base-font-size * 3 );
 	.regular;
-	line-height: @spacing;
-	margin-bottom: @spacing / 2;
+	line-height: 1em;
+	margin-bottom: .5em;
 }
 h2, h3, h4, h5, h6,
 .h2, .h3, .h4, .h5, .h6 {
@@ -171,16 +171,16 @@ h3, .h3 {
 	.font-size( @base-font-size / 2 * 3 );
 	.bold;
 	border-bottom: 1px solid @light;
-	margin-bottom: @spacing;
+	margin-bottom: 1em;
 }
 h4, .h4, h5, .h5, h6, .h6, .h {
 	.font-size( @base-font-size * 1.125);
 	.bold;
-	margin-bottom: @spacing;
+	margin-bottom: 1em;
 }
 .lead, [role="article"] > p:first-of-type {
 	.font-size( @base-font-size / 4 * 5 );
-	margin-bottom: @spacing;
+	margin-bottom: 1em;
 }
 p, .p {
 	margin: 0 0 1.5em;
@@ -198,7 +198,7 @@ dt {
 	.bold;
 }
 dd {
-	padding: .25em @spacing .5em;
+	padding: .25em 1em .5em;
 	margin: 0;
 }
 
@@ -267,7 +267,7 @@ pre, .pre {
 
 	&:before {	
 		.rounded(0 @rounding 0 @rounding);
-		.opacity();
+		opacity: .5;
 		border: 1px solid @light;
 		background-color: white;
 		text-transform: uppercase;
@@ -286,7 +286,7 @@ code, .code {
 }
 form {
 	p {
-		margin-bottom: @spacing;
+		margin-bottom: 1em;
 	}
 	ul {
 		.menu;
