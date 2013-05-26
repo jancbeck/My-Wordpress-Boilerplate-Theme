@@ -20,3 +20,4 @@ Thumbs.db
 *.esproj
 
 css
+*.sublime-workspace
