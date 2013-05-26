@@ -93,7 +93,7 @@ img {
 	border: none;
 	background-color: @background;
 	color: @text;
-	padding: .25em .5em;
+	padding: .5em 1em;
 	cursor: pointer;
 
 	&:hover,
@@ -205,35 +205,31 @@ dd {
 /* tables 
 --------------------------------------------- */
 
-table, .table {
-	.rounded( 6px );
-	.p;
-	border: 1px solid @light;
-	border-collapse: separate;
-	border-left: 0;
+table {
+	.rounded();
+	margin-bottom: 1.5em;
 	width: 100%;
-	border-spacing: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid @light;
+}
+td, th {
+    border-left: 1px solid @light;
+    border-top: 1px solid @light;
+    padding: .5em .75em;
+    vertical-align: top;
+    text-align: left;
 
-	tr {
-		text-align: left;
+	&:first-child {
+    	border-left: none;
 	}
-	th, td {
-		padding: .5em .75em;
-		border-left: 1px solid @light;
-		font-weight: normal;
-		border-top: 1px solid @light;
-		vertical-align: top;
-	}
-	th {
-		.bold;
-		border-bottom: 1px solid @light;
-	}
-	tr:first-child th, tr:first-child td {
-		border-top: 0;
-	}
-	tr:hover {
-		background: @lighter;
-	}
+}
+th {
+	.bold;
+    border-top: none;
+}
+tr:hover {
+	background: lighten(@brand, 55%);
 }
 
 /* forms & text containers
@@ -293,9 +289,12 @@ form {
 	}
 }
 fieldset {
-	margin: 0 0 .5em;
+	margin: 0 0 1em;
 	padding: 0;
 	border: none;
+}
+.form-actions {
+	margin: 1em 0;
 }
 label, select, button, input[type="button"], input[type="reset"], input[type="submit"], input[type="radio"], input[type="checkbox"] {
 	cursor: pointer;
@@ -303,18 +302,21 @@ label, select, button, input[type="button"], input[type="reset"], input[type="su
 label {
 	display: block;
 	margin-bottom: .5em;
-	.bold;
+
+	fieldset > & {
+		.bold;
+	}
 }
 button, input, select, textarea {
 	margin: 0;
 	font-size: 100%;
+	font-family: @font-family;
 	vertical-align: middle;
 }
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
 	.border-radius();
 	display: inline-block;
-	padding: .25em .5em;
-	margin-bottom: .5em;
+	padding: .5em;
 	color: @darker;
 	vertical-align: middle;
 	width: 100%;
@@ -349,7 +351,7 @@ textarea {
 	}
 }
 input[type="radio"], input[type="checkbox"] {
-	margin: .25em 0 0;
+	margin: -.25em .5em 0 0;
 	line-height: normal;
 }
 button, input[type=submit] {
