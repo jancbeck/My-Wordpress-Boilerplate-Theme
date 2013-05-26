@@ -6,20 +6,22 @@ if (function_exists('c'))
 if ( ! isset( $content_width ) )
 	$content_width = 640;
 
-if ( ! function_exists( '_s_setup' ) ) :
+if ( ! function_exists( 'setup' ) ) :
 
-	function _s_setup() {
+	function setup() {
 
-		load_theme_textdomain( '_s', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'project', get_template_directory() . '/languages' );
 
 		add_theme_support( 'post-thumbnails', array( 'page' ) );
 
+		add_editor_style();
+
 		register_nav_menus( array(
-			'primary' => __( 'Primary Menu', '_s' ),
+			'primary' => __( 'Primary Menu', 'project' ),
 		) );
 	}
 endif;
-add_action( 'after_setup_theme', '_s_setup' );
+add_action( 'after_setup_theme', 'setup' );
 
 /** Hooks ****************************************************************/
 
