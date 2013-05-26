@@ -1,24 +1,3 @@
-.btn( @background: @brand, @text: white ) {
-	.border-radius();
-	display: inline-block;
-	border: none;
-	background-color: @background;
-	color: @text;
-	padding: @tiny-spacing @smaller-spacing;
-	cursor: pointer;
-
-	&:hover,
-	&:focus,
-	&:active,
-	&.active {
-		background-color: darken(@background, 10%);
-		color: @text;
-	}
-}
-.btn { .btn( @brand ) }
-.btn-inverse {
-	.btn( @text-color )
-}
 .divider {
 	position: absolute;
 	content: "";
@@ -42,18 +21,9 @@
 		color: @link-color;
 	}
 }
-.nav, .menu, .unstyled {
-	list-style: none;
-	padding: 0;
-	margin-left: 0;
-
-	.current-menu-item, .current {
-		.bold;
-	}
-}
 .inline {
 	li {
-		padding: @smaller-spacing @smaller-spacing @smaller-spacing @small-spacing;
+		padding: .5em .5em .5em .75em;
 		display: inline-block;
 	}
 }
@@ -74,7 +44,7 @@
 	.nav;
 
 	a {
-		padding: @smaller-spacing @smaller-spacing @smaller-spacing 0;
+		padding: .5em .5em .5em 0;
 		display: block;
 	}
 	.current-menu-item {
@@ -117,7 +87,7 @@
 }
 .pagination {
 	text-align: center;
-	margin: @larger-spacing 0;
+	margin: 2em 0;
 
 	ul {
 		.nav;
@@ -139,12 +109,12 @@
 		}
 	}
 	.page-numbers .page-numbers {
-		padding: @smaller-spacing @smaller-spacing @smaller-spacing @small-spacing;
+		padding: .5em .5em .5em .75em;
 		display: inline-block;
 		text-align: center;
 	}
 	.dots {
-		padding: @tiny-spacing @tiny-spacing @tiny-spacing @smaller-spacing;
+		padding: .25em .25em .25em .5em;
 	}
 }
 
@@ -153,7 +123,7 @@
 		.left;
 		text-align: right;
 		width: 30%;
-		padding-right: @small-spacing;
+		padding-right: .75em;
 
 		&:after {
 			content: ": ";
