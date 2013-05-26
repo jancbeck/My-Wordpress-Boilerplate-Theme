@@ -212,8 +212,9 @@
 
 <div class="example">
 	<?php wp_nav_menu(array(
-		'theme_location' => 'main-nav',
-		'menu_class' => 'vertical-nav'
+		'theme_location' => 'primary',
+		'menu_class' => 'vertical-nav',
+		'container' => false
 	)) ?>
 </div>
 
@@ -229,8 +230,9 @@
 
 <div class="example">
 	<?php wp_nav_menu(array(
-		'theme_location' => 'main-nav',
-		'menu_class' => 'vertical-nav divided-nav'
+		'theme_location' => 'primary',
+		'menu_class' => 'vertical-nav divided-nav',
+		'container' => false
 	)) ?>
 </div>
 
@@ -241,8 +243,9 @@
 
 <div class="example">
 	<?php wp_nav_menu(array(
-		'theme_location' => 'main-nav',
-		'menu_class' => 'horizontal-nav divided-nav'
+		'theme_location' => 'primary',
+		'menu_class' => 'horizontal-nav divided-nav',
+		'container' => false
 	)) ?>
 </div>
 
@@ -258,8 +261,9 @@
 
 <div class="example">
 	<?php wp_nav_menu(array(
-		'theme_location' => 'main-nav',
+		'theme_location' => 'primary',
 		'menu_class' => 'horizontal-nav btn-nav',
+		'container' => false
 	)) ?>
 </div>
 
@@ -298,12 +302,12 @@
 
 <div class="example">
 	
-	  <p><input class="btn" type="submit" value="Submit" /></p>
-	  <p><button class="btn" type="button">Default button</button></p>
-	  <p><button class="btn btn-neutral" type="button">Neutral button</button></p>
-	  <p><button class="btn positive-btn" type="button">Default button</button></p>
-	  <p><button class="btn danger-btn" type="button">Danger button</button></p>
-	  <p><button class="btn dark-btn" type="button">Dark button</button></p>
+  	<p><input class="btn" type="submit" value="Submit" /></p>
+  	<p><button class="btn" type="button">Default button</button></p>
+  	<p><button class="btn btn-neutral" type="button">Neutral button</button></p>
+  	<p><button class="btn positive-btn" type="button">Default button</button></p>
+  	<p><button class="btn danger-btn" type="button">Danger button</button></p>
+  	<p><button class="btn dark-btn" type="button">Dark button</button></p>
 
 </div>
 
