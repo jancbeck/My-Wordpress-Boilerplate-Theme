@@ -18,7 +18,5 @@ Thumbs.db
 .settings
 .tmproj
 *.esproj
-*.sublime-project
-*.sublime-workspace
 
 css
