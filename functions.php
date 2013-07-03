@@ -28,6 +28,12 @@ add_action( 'after_setup_theme', 'setup' );
 add_action( 'wp_enqueue_scripts', 'enqueue_theme_scripts_and_styles' );
 add_action( 'wp_default_scripts', 'enqueue_built_in_jquery_in_footer' );
 
+/*
+ * Add page/post slug class to menu item classes
+ * http://www.wpreso.com/blog/tutorials/2011/01/04/add-pagepost-slug-class-to-menu-item-classes/
+ */
+add_filter('wp_nav_menu', 'add_slug_class_to_menu_item');
+
 
 /** Functions ************************************************************/
 
@@ -58,3 +64,16 @@ function part( $slug, $name = null ) {
 		ob_clean();
 		return $part;
 	}
+
+function add_slug_class_to_menu_item($output){
+	$ps = get_option('permalink_structure');
+	if(!empty($ps)){
+		$idstr = preg_match_all('/<li id="menu-item-(\d+)/', $output, $matches);
+		foreach($matches[1] as $mid){
+			$id = get_post_meta($mid, '_menu_item_object_id', true);
+			$slug = basename(get_permalink($id));
+			$output = preg_replace('/menu-item-'.$mid.'">/', 'menu-item-'.$mid.' menu-item-'.$slug.'">', $output, 1);
+		}
+	}
+	return $output;
+}
